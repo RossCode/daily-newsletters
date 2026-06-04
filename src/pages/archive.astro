@@ -1,0 +1,33 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getNewsletters, formatShortDate } from '@/lib/newsletters';
+
+const newsletters = getNewsletters();
+
+// Group by year, preserving descending order within each year
+const byYear = newsletters.reduce<Record<string, typeof newsletters>>((acc, n) => {
+  (acc[n.year] ??= []).push(n);
+  return acc;
+}, {});
+
+// Years sorted descending
+const years = Object.keys(byYear).sort((a, b) => b.localeCompare(a));
+---
+
+<Layout title="Archive" prev={{ url: '/', label: 'Latest' }}>
+  <div class="archive-content">
+    <h1 class="archive-title">Archive</h1>
+
+    {years.map(year => (
+      <div class="year-group">
+        <div class="year-heading">{year}</div>
+        {byYear[year].map(n => (
+          <div class="archive-entry">
+            <span class="archive-date">{formatShortDate(n.slug)}</span>
+            <a href={n.url} class="archive-link">{n.title}</a>
+          </div>
+        ))}
+      </div>
+    ))}
+  </div>
+</Layout>

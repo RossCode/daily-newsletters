@@ -1,0 +1,27 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getNewsletters, formatDate } from '@/lib/newsletters';
+
+const newsletters = getNewsletters();
+const latest = newsletters[0];
+const older = newsletters[1];
+
+const { Content, title } = latest;
+---
+
+<Layout
+  title={title}
+  prev={older ? { url: older.url, label: formatDate(older.slug) } : undefined}
+>
+  <div class="content">
+    <Content />
+  </div>
+  <nav class="bottom-nav">
+    {older
+      ? <a href={older.url}>← {formatDate(older.slug)}</a>
+      : <span class="disabled">←</span>
+    }
+    <a href="/archive">Archive</a>
+    <span class="disabled">→</span>
+  </nav>
+</Layout>

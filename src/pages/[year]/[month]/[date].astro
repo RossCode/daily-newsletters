@@ -1,0 +1,52 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Layout from '@/layouts/Layout.astro';
+import { getNewsletters, formatDate } from '@/lib/newsletters';
+import type { Newsletter } from '@/lib/newsletters';
+
+export const getStaticPaths: GetStaticPaths = () => {
+  const newsletters = getNewsletters();
+  return newsletters.map((newsletter, index) => ({
+    params: {
+      year: newsletter.year,
+      month: newsletter.month,
+      date: newsletter.slug,
+    },
+    props: {
+      newsletter,
+      older: newsletters[index + 1] ?? null,
+      newer: newsletters[index - 1] ?? null,
+    },
+  }));
+};
+
+interface Props {
+  newsletter: Newsletter;
+  older: Newsletter | null;
+  newer: Newsletter | null;
+}
+
+const { newsletter, older, newer } = Astro.props;
+const { Content, title } = newsletter;
+---
+
+<Layout
+  title={title}
+  prev={older ? { url: older.url, label: formatDate(older.slug) } : undefined}
+  next={newer ? { url: newer.url, label: formatDate(newer.slug) } : undefined}
+>
+  <div class="content">
+    <Content />
+  </div>
+  <nav class="bottom-nav">
+    {older
+      ? <a href={older.url}>← {formatDate(older.slug)}</a>
+      : <span class="disabled">←</span>
+    }
+    <a href="/archive">Archive</a>
+    {newer
+      ? <a href={newer.url}>{formatDate(newer.slug)} →</a>
+      : <span class="disabled">→</span>
+    }
+  </nav>
+</Layout>
