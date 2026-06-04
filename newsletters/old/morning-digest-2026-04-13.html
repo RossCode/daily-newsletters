@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Morning Digest — April 13, 2026</title>
+  <style>
+    body { font-family: Georgia, serif; max-width: 660px; margin: 48px auto; color: #1a1a1a; line-height: 1.75; padding: 0 24px; background: #fafaf8; }
+    .header { border-bottom: 3px solid #1a1a1a; padding-bottom: 12px; margin-bottom: 6px; }
+    .header h1 { font-size: 1.6em; margin: 0 0 4px 0; }
+    .meta { color: #888; font-size: 0.85em; font-style: italic; margin-bottom: 36px; }
+    h2 { font-size: 1.05em; text-transform: uppercase; letter-spacing: 0.08em; color: #555; border-left: 4px solid #1a1a1a; padding-left: 10px; margin-top: 40px; margin-bottom: 20px; }
+    .story { margin-bottom: 32px; }
+    .story h3 { font-size: 1.08em; margin: 0 0 4px 0; line-height: 1.4; }
+    .badge { display: inline-block; font-family: -apple-system, sans-serif; font-size: 0.72em; font-weight: normal; color: #fff; background: #444; border-radius: 3px; padding: 1px 7px; margin-left: 8px; vertical-align: middle; }
+    .badge.high { background: #b34700; }
+    .story p { margin: 6px 0 0 0; font-size: 0.97em; }
+    ul.notable { padding-left: 0; list-style: none; margin: 0; }
+    ul.notable li { padding: 8px 0; border-bottom: 1px solid #e8e8e4; font-size: 0.95em; }
+    ul.notable li:last-child { border-bottom: none; }
+    ul.hits { padding-left: 18px; margin: 0; }
+    ul.hits li { font-size: 0.93em; margin-bottom: 7px; color: #333; }
+    .shower { background: #f2f0eb; border-left: 4px solid #bbb; padding: 14px 18px; margin-top: 8px; border-radius: 0 4px 4px 0; font-style: italic; font-size: 0.97em; color: #333; }
+    .shower .attribution { font-style: normal; font-size: 0.8em; color: #999; margin-top: 6px; }
+    footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid #ddd; font-size: 0.78em; color: #aaa; font-family: -apple-system, sans-serif; }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Morning Digest</h1>
+  </div>
+  <div class="meta">Monday, April 13, 2026 &nbsp;&middot;&nbsp; 10 newsletters reviewed &nbsp;&middot;&nbsp; 5 overlapping stories identified</div>
+
+  <h2>Top Stories</h2>
+
+  <div class="story">
+    <h3>Sam Altman's Home Hit Twice in 48 Hours <span class="badge">2 newsletters</span></h3>
+    <p>A 20-year-old self-described "Butlerian Jihadist" threw a Molotov cocktail at Sam Altman's San Francisco home early Friday morning and was arrested an hour later outside OpenAI's HQ. Then on Sunday night, two suspects fired gunshots outside the same residence. The suspect had posted extensively about AI leading to human extinction. Altman responded with a personal essay calling AI anxiety "justified," acknowledging past mistakes, and asking for de-escalation. The Rundown AI and TLDR both flagged this as a signal that anti-AI sentiment is moving from fringe to dangerous, with 4 in 5 Americans now expressing concern about the technology.</p>
+  </div>
+
+  <div class="story">
+    <h3>Artemis II Crew Splashes Down, NASA Eyes 2028 Moon Landing <span class="badge">2 newsletters</span></h3>
+    <p>NASA's Artemis II crew safely splashed down in the Pacific Ocean after a 10-day mission that took the four astronauts farther from Earth than any humans in history. The critical heat shield test survived re-entry at 32 times the speed of sound. Morning Brew covered the astronauts' first public appearance at Johnson Space Center on Saturday, while Superhuman's Sunday edition featured the splashdown itself and the viral photo of the Moon's hidden colors captured during the mission. NASA's next milestone is a crewed lunar landing in 2028.</p>
+  </div>
+
+  <div class="story">
+    <h3>Anthropic's Claude Is the Talk of the Industry <span class="badge">2 newsletters</span></h3>
+    <p>TLDR cited a CNBC report from HumanX, one of AI's main industry events, where the word "Claude Mania" was used to describe the mood on the ground. Claude Code is the tool that dominates conversation, and Anthropic's early enterprise positioning has it best placed to win contracts from the biggest spenders. Separately, The Rundown AI reported that the U.S. Treasury Secretary and Fed Chair summoned Wall Street CEOs to an urgent meeting over cyber risks posed by Anthropic's Mythos model, and that Anthropic hosted Christian leaders at its HQ for a summit on Claude's moral development. OpenAI is no longer the default conversation starter in the room.</p>
+  </div>
+
+  <div class="story">
+    <h3>Meta Pushes Hard on AI Consumer Play <span class="badge">2 newsletters</span></h3>
+    <p>Meta's new Muse Spark multimodal reasoning model appeared in both TLDR and The Rundown AI's trending tools. TLDR's analysis argues that while Muse Spark doesn't have novel capabilities, Meta is uniquely positioned to dominate consumer AI because it has the user base and attention that Google, OpenAI, and Anthropic lack. Meta is also reportedly building an AI-powered search engine to reduce its dependence on competitors, and is hiring departed OpenAI Stargate executives to build a new compute group.</p>
+  </div>
+
+  <div class="story">
+    <h3>Postgres Queue Degradation: Same Article, Two TLDR Editions <span class="badge">2 newsletters</span></h3>
+    <p>PlanetScale's deep-dive on keeping Postgres job queues healthy landed in both TLDR Dev and TLDR Data, which is a rare cross-edition signal. The core insight: queues don't fail because of throughput limits; they degrade because deleted rows ("dead tuples") pile up when long-running transactions block the VACUUM process. The fix is throttling competing workloads so vacuuming can run. Worth reading if you run any Postgres-backed task queue.</p>
+  </div>
+
+  <h2>Other Notable Stories</h2>
+
+  <ul class="notable">
+    <li><strong>US blockades Strait of Hormuz.</strong> After US-Iran peace talks collapsed in Pakistan this weekend, Trump announced the US Navy will blockade the strait to cut off Iran's oil revenue. Crude oil hit $104.97/barrel. The ceasefire that started last Tuesday is now under serious strain. (Morning Brew)</li>
+    <li><strong>Viktor Orban loses Hungarian election after 16 years in power.</strong> Opposition leader Peter Magyar won, pledging anti-corruption reforms. Orban had been a flagship figure for global populists. (Morning Brew)</li>
+    <li><strong>Apple AI glasses confirmed.</strong> Apple is developing display-free smart glasses (internally called N50), set to rival Meta's Ray-Bans. Planned reveal at end of 2026 with a 2027 release, as part of a broader AI wearables push that also includes new AirPods and a camera pendant. (TLDR)</li>
+    <li><strong>AI finds GLP-1 side effects clinical trials missed.</strong> Penn researchers used GPT and Gemini to analyze 400K Reddit posts about Ozempic and Mounjaro, surfacing menstrual irregularities, chills, and hot flashes that don't appear on current drug labels. Fatigue was the second-most-common complaint among users but barely registers in clinical trial reporting. (The Rundown AI)</li>
+    <li><strong>Anthropic silently downgraded Claude Code cache TTL.</strong> A GitHub issue revealed that Anthropic quietly cut prompt cache TTL from 1 hour to 5 minutes in March, with no public announcement. Worth checking if you've noticed unexplained cost or latency increases. (TLDR Dev)</li>
+    <li><strong>Rory McIlroy wins back-to-back Masters.</strong> He becomes the fourth golfer ever to win Augusta two years in a row. (Morning Brew)</li>
+    <li><strong>Asha Bhosle, Guinness record holder for most recorded artist, dies at 92.</strong> She made roughly 12,000 recordings in 20 languages across an eight-decade career. Indian PM Modi called her brilliance "timeless." (Morning Brew)</li>
+    <li><strong>Kubernetes 1.36 launches April 22</strong> with 20 new alpha features, including native gang scheduling, GPU management improvements, and the ability to scale applications to zero replicas based on external metrics like queue length. (TLDR DevOps)</li>
+    <li><strong>Cirrus Labs joining OpenAI's Agent Infrastructure team.</strong> The engineering tooling company is folding into OpenAI to further its mission of building tools for the agentic era. (TLDR Dev)</li>
+    <li><strong>Linux kernel now accepts AI-generated code</strong>, but the submitting developer takes full legal and technical responsibility for the contribution. (TLDR)</li>
+  </ul>
+
+  <h2>Quick Hits</h2>
+
+  <ul class="hits">
+    <li>Q1 2026 earnings season kicks off today, starting with Goldman Sachs. JPMorgan's Jamie Dimon already flagged AI disruption, war-related inflation, and private credit instability in his shareholder letter.</li>
+    <li>Tax Day is Wednesday. IMF and World Bank meet in DC this week; both are expected to downgrade global growth forecasts due to the Iran conflict.</li>
+    <li>Gen Z skepticism of AI is rising: only 18% say they're hopeful about it and 22% say they're excited, both down sharply from last year, per a new Gallup poll. (The Hustle)</li>
+    <li>Datadog released an open-source AI-native SAST tool that uses LLMs to detect code vulnerabilities with fewer false positives than traditional rule-based scanners. (TLDR DevOps)</li>
+    <li>Databricks launched database branching for Lakebase Postgres using copy-on-write storage, enabling isolated database environments in seconds without duplicating data. (TLDR DevOps)</li>
+    <li>Blue Origin has successfully extracted oxygen from simulated lunar soil using electric current, a key step toward breathable air and rocket fuel on the Moon. (TLDR)</li>
+    <li>OpenAI announced a $100/month Pro tier for developers using ChatGPT's Codex coding tool, with a $200/month plan offering 20x higher limits. (The Hustle)</li>
+    <li>The WNBA draft is tonight at 7pm ET. The league has two new franchises this year, and six seniors from UCLA's NCAA championship team are projected to be drafted in the first two rounds, which would be a first. (Morning Brew)</li>
+    <li>Alibaba revealed it is behind "HappyHorse," the stealth video AI model that debuted atop global rankings, beating ByteDance's Seedance 2.0. (The Rundown AI)</li>
+  </ul>
+
+  <h2>Shower Thought</h2>
+
+  <div class="shower">
+    You'd think evolution would have stopped snoring long ago: being loud at night while sleeping seems like a bad survival strategy.
+    <div class="attribution">via Reddit, via The Hustle</div>
+  </div>
+
+  <footer>
+    Generated automatically from your Newsletters label &middot; April 13, 2026 &middot; Sources: TLDR, TLDR Dev, TLDR DevOps, TLDR Data, The Rundown AI, Morning Brew, Morning Brew Investing, Superhuman, The Hustle (x2)
+  </footer>
+
+</body>
+</html>

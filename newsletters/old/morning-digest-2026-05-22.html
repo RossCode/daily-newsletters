@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Digest -- May 22, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #22263a;
+    --border: #2e3347;
+    --accent: #6c8ef5;
+    --accent2: #a78bfa;
+    --text: #e2e8f0;
+    --muted: #8892a4;
+    --highlight: #f59e0b;
+    --green: #34d399;
+    --red: #f87171;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 0 0 80px;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #1e2a4a 0%, #0f1117 60%);
+    border-bottom: 1px solid var(--border);
+    padding: 40px 24px 32px;
+    text-align: center;
+  }
+
+  .header .label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+
+  .header .meta {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 40px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-title h2 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .section-title .icon {
+    font-size: 16px;
+  }
+
+  /* Top Story Cards */
+  .story-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-bottom: 14px;
+    transition: border-color 0.15s;
+  }
+
+  .story-card:hover {
+    border-color: var(--accent);
+  }
+
+  .story-card .badge {
+    display: inline-block;
+    background: rgba(108, 142, 245, 0.15);
+    color: var(--accent);
+    border: 1px solid rgba(108, 142, 245, 0.3);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+
+  .story-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .story-card h3 a {
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .story-card h3 a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+
+  .story-card p {
+    font-size: 14px;
+    color: #b0bac9;
+    line-height: 1.6;
+  }
+
+  /* Also Worth Knowing */
+  .item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .item-row {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+
+  .item-row:last-child {
+    border-bottom: none;
+  }
+
+  .item-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent2);
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  .item-content strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .item-content {
+    font-size: 14px;
+    color: #b0bac9;
+    line-height: 1.6;
+  }
+
+  .item-source {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* Quick Hits */
+  .quick-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  @media (max-width: 560px) {
+    .quick-grid { grid-template-columns: 1fr; }
+  }
+
+  .quick-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: #b0bac9;
+    line-height: 1.5;
+  }
+
+  .quick-item strong {
+    color: var(--text);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* Shower Thoughts */
+  .thought-card {
+    background: var(--surface2);
+    border-left: 3px solid var(--accent2);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+  }
+
+  .thought-card p {
+    font-size: 15px;
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.6;
+    margin-bottom: 6px;
+  }
+
+  .thought-card .source {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="label">Augusto Digital -- Morning Brief</div>
+  <h1>Morning Digest</h1>
+  <div class="meta">Friday, May 22, 2026 &nbsp;&middot;&nbsp; Compiled from 14 newsletters</div>
+</div>
+
+<div class="container">
+
+  <!-- TOP STORIES -->
+  <div class="section-title">
+    <span class="icon">&#9733;</span>
+    <h2>Top Stories</h2>
+  </div>
+
+  <div class="story-card">
+    <div class="badge">5 newsletters</div>
+    <h3><a href="https://openai.com/index/model-disproves-discrete-geometry-conjecture/">OpenAI's Model Disproves an 80-Year-Old Erdos Math Conjecture</a></h3>
+    <p>OpenAI's latest reasoning model solved a discrete geometry problem that had stumped mathematicians since Paul Erdos posed it in 1946. The AI didn't just find a proof -- it constructed a new approach that human researchers had failed to discover for eight decades. A first for AI in pure mathematics, covered across TLDR AI, AI Entrepreneurs, Superhuman, and both editions of The Rundown.</p>
+  </div>
+
+  <div class="story-card">
+    <div class="badge">4 newsletters</div>
+    <h3>SpaceX Files for IPO: $80B Raise, $2T Valuation, Musk Keeps 85% of the Votes</h3>
+    <p>SpaceX dropped its long-anticipated IPO prospectus. The filing targets an $80 billion raise at a roughly $2 trillion valuation. Musk retains 85% voting control through a dual-class share structure, and the company posted a Q1 net loss of $4.3 billion. The filing also revealed that Anthropic is committed to spending $45 billion on SpaceX compute -- one of the largest AI infrastructure deals ever disclosed. Covered in Morning Brew, TLDR AI, Marketing Max, and The Rundown.</p>
+  </div>
+
+  <div class="story-card">
+    <div class="badge">4 newsletters</div>
+    <h3><a href="https://techcrunch.com/2026/05/20/sam-altman-makes-mic-drop-offer-to-every-y-combinator-startup/">Sam Altman Offers $2M in OpenAI Tokens to Every YC Startup</a></h3>
+    <p>Altman announced a blanket offer: every Y Combinator startup gets $2 million in OpenAI API tokens. The move is widely read as a land-grab to lock in the next generation of AI-native companies before competitors can. Covered in Marketing Max, The Hustle, The Rundown, and Superhuman.</p>
+  </div>
+
+  <div class="story-card">
+    <div class="badge">3 newsletters</div>
+    <h3><a href="https://www.cnbc.com/2026/05/21/oura-smart-ring-ipo-filing.html">Oura Ring Files for IPO</a></h3>
+    <p>The smart ring company filed for a public offering, becoming one of the more anticipated consumer health tech IPOs of the year. No valuation target has been disclosed yet. Covered in Morning Brew, Marketing Max, and The Rundown.</p>
+  </div>
+
+  <div class="story-card">
+    <div class="badge">2 newsletters</div>
+    <h3><a href="https://www.gov.ca.gov/2026/05/21/governor-newsom-signs-first-of-its-kind-executive-order-to-prepare-workers-and-businesses-for-potential-ai-disruption/">Newsom Signs First-of-Its-Kind AI Worker Protection Executive Order</a></h3>
+    <p>California's governor signed the first executive order in the US specifically designed to prepare workers and businesses for AI-driven displacement. State agencies must now assess AI's workforce impact and develop transition programs. Covered in The Rundown and Morning Brew.</p>
+  </div>
+
+  <div class="story-card">
+    <div class="badge">2 newsletters</div>
+    <h3>Eli Lilly's Retatrutide Shows 28% Weight Loss in Trials</h3>
+    <p>Eli Lilly's next-generation GLP-1 drug retatrutide posted 28% average weight loss in clinical trials, outperforming Ozempic and Wegovy by a significant margin. Reported as the strongest weight-loss drug result yet published. Covered in TLDR and Morning Brew.</p>
+  </div>
+
+  <!-- ALSO WORTH KNOWING -->
+  <div class="section-title">
+    <span class="icon">&#9679;</span>
+    <h2>Also Worth Knowing</h2>
+  </div>
+
+  <div class="item-list">
+    <div class="item-row">
+      <div class="item-dot"></div>
+      <div>
+        <div class="item-content"><strong>Intuit Cuts 17% of Workforce</strong> -- framed as a pivot toward AI-driven product development.</div>
+        <div class="item-source">The Rundown, May 21</div>
+      </div>
+    </div>
+    <div class="item-row">
+      <div class="item-dot"></div>
+      <div>
+        <div class="item-content"><strong>ClickUp Cuts 22% of Workforce</strong> -- the project management platform laid off roughly a fifth of its staff.</div>
+        <div class="item-source">TLDR, May 22</div>
+      </div>
+    </div>
+    <div class="item-row">
+      <div class="item-dot"></div>
+      <div>
+        <div class="item-content"><strong>Google Rebuilds Search Around Gemini</strong> -- replacing the classic ten-blue-links format with an intelligent search experience powered by Gemini.</div>
+        <div class="item-source">Superhuman, May 21</div>
+      </div>
+    </div>
+    <div class="item-row">
+      <div class="item-dot"></div>
+      <div>
+        <div class="item-content"><strong>Figure AI Deploying Robots in Consumer Settings</strong> -- moving beyond industrial pilots into everyday consumer environments.</div>
+        <div class="item-source">TLDR, May 22</div>
+      </div>
+    </div>
+    <div class="item-row">
+      <div class="item-dot"></div>
+      <div>
+        <div class="item-content"><strong>Emergence Multi-Agent Simulation Results</strong> -- in a five-town simulation: Claude had zero crimes, Gemini set things on fire, and every Grok agent was dead by day four.</div>
+        <div class="item-source">The Rundown, May 21</div>
+      </div>
+    </div>
+    <div class="item-row">
+      <div class="item-dot"></div>
+      <div>
+        <div class="item-content"><strong>GitHub Breach via VS Code Extension</strong> -- attackers compromised GitHub accounts through a malicious VS Code extension. Worth auditing any third-party extensions installed.</div>
+        <div class="item-source">The Rundown, May 21</div>
+      </div>
+    </div>
+    <div class="item-row">
+      <div class="item-dot"></div>
+      <div>
+        <div class="item-content"><strong>npm Supply Chain Attacks Targeting Developers</strong> -- a wave of malicious npm packages discovered targeting developer environments.</div>
+        <div class="item-source">The Code, May 21</div>
+      </div>
+    </div>
+    <div class="item-row">
+      <div class="item-dot"></div>
+      <div>
+        <div class="item-content"><strong>Google Antigravity CLI Replaces Gemini CLI</strong> -- rebranded and upgraded with new capabilities for developers building with Gemini.</div>
+        <div class="item-source">The Code, May 21</div>
+      </div>
+    </div>
+    <div class="item-row">
+      <div class="item-dot"></div>
+      <div>
+        <div class="item-content"><strong>Modal Labs Raises $355M</strong> -- the cloud compute platform for AI workloads raised a large round as GPU infrastructure demand accelerates.</div>
+        <div class="item-source">Marketing Max, May 21</div>
+      </div>
+    </div>
+    <div class="item-row">
+      <div class="item-dot"></div>
+      <div>
+        <div class="item-content"><strong>Quantum Computing Gets $2B US Government Investment</strong> -- a federal commitment to quantum development, signaling urgency to stay competitive with China.</div>
+        <div class="item-source">Morning Brew, May 22</div>
+      </div>
+    </div>
+    <div class="item-row">
+      <div class="item-dot"></div>
+      <div>
+        <div class="item-content"><strong>Cohere Open-Sources Command A+</strong> -- the latest enterprise language model released as open source, putting pressure on proprietary competitors.</div>
+        <div class="item-source">The Code, May 21</div>
+      </div>
+    </div>
+    <div class="item-row">
+      <div class="item-dot"></div>
+      <div>
+        <div class="item-content"><strong>OpenAI Launches Guaranteed Capacity for Enterprise</strong> -- enterprise customers can now get guaranteed API throughput for reliability-sensitive production workloads.</div>
+        <div class="item-source">Superhuman, May 21</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK HITS -->
+  <div class="section-title">
+    <span class="icon">&#9654;</span>
+    <h2>Quick Hits</h2>
+  </div>
+
+  <div class="quick-grid">
+    <div class="quick-item">
+      <strong>Victoria's Secret Rebrands</strong>
+      New ticker symbol: VSXY
+      <span style="font-size:12px;color:var(--muted)">Morning Brew, May 22</span>
+    </div>
+    <div class="quick-item">
+      <strong>Arsenal Wins Premier League Title</strong>
+      The Gunners are champions.
+      <span style="font-size:12px;color:var(--muted)">Morning Brew, May 21</span>
+    </div>
+    <div class="quick-item">
+      <strong>Colbert's Final Late Show</strong>
+      Stephen Colbert signed off after 11 seasons.
+      <span style="font-size:12px;color:var(--muted)">Morning Brew, May 21</span>
+    </div>
+    <div class="quick-item">
+      <strong>Tech Founders Enrolling in Etiquette School</strong>
+      Apparently it is a thing now.
+      <span style="font-size:12px;color:var(--muted)">The Hustle, May 22</span>
+    </div>
+    <div class="quick-item">
+      <strong>SendBack Gains Traction</strong>
+      Startup built around hassle-free product returns.
+      <span style="font-size:12px;color:var(--muted)">The Hustle, May 21</span>
+    </div>
+    <div class="quick-item">
+      <strong>James Murdoch Buying Vox Media</strong>
+      Reported acquisition in progress.
+      <span style="font-size:12px;color:var(--muted)">The Hustle, May 21</span>
+    </div>
+    <div class="quick-item">
+      <strong>Minnesota Bans Prediction Markets</strong>
+      State-level legislation targeting online prediction platforms.
+      <span style="font-size:12px;color:var(--muted)">The Hustle, May 21</span>
+    </div>
+  </div>
+
+  <!-- SHOWER THOUGHTS -->
+  <div class="section-title">
+    <span class="icon">&#9728;</span>
+    <h2>Shower Thoughts</h2>
+  </div>
+
+  <div class="thought-card">
+    <p>"Many bad events in history could be chalked up to 'one jerk ruins it for everyone.'"</p>
+    <div class="source">The Hustle, May 22</div>
+  </div>
+
+  <div class="thought-card">
+    <p>"The memory of an embarrassing moment is often more embarrassing than the moment itself."</p>
+    <div class="source">The Hustle, May 21</div>
+  </div>
+
+  <div class="footer">
+    Compiled from 14 newsletters &nbsp;&middot;&nbsp; May 22, 2026 &nbsp;&middot;&nbsp; Augusto Digital Morning Brief
+  </div>
+
+</div>
+</body>
+</html>

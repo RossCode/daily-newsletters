@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Morning Digest — April 6, 2026</title>
+  <style>
+    body { font-family: Georgia, serif; max-width: 660px; margin: 48px auto; color: #1a1a1a; line-height: 1.75; padding: 0 24px; background: #fafaf8; }
+    .header { border-bottom: 3px solid #1a1a1a; padding-bottom: 12px; margin-bottom: 6px; }
+    .header h1 { font-size: 1.6em; margin: 0 0 4px 0; }
+    .meta { color: #888; font-size: 0.85em; font-style: italic; margin-bottom: 36px; }
+    h2 { font-size: 1.05em; text-transform: uppercase; letter-spacing: 0.08em; color: #555; border-left: 4px solid #1a1a1a; padding-left: 10px; margin-top: 40px; margin-bottom: 20px; }
+    .story { margin-bottom: 32px; }
+    .story h3 { font-size: 1.08em; margin: 0 0 4px 0; line-height: 1.4; }
+    .badge { display: inline-block; font-family: -apple-system, sans-serif; font-size: 0.72em; font-weight: normal; color: #fff; background: #444; border-radius: 3px; padding: 1px 7px; margin-left: 8px; vertical-align: middle; }
+    .badge.high { background: #b34700; }
+    .story p { margin: 6px 0 0 0; font-size: 0.97em; }
+    ul.notable { padding-left: 0; list-style: none; margin: 0; }
+    ul.notable li { padding: 8px 0; border-bottom: 1px solid #e8e8e4; font-size: 0.95em; }
+    ul.notable li:last-child { border-bottom: none; }
+    ul.hits { padding-left: 18px; margin: 0; }
+    ul.hits li { font-size: 0.93em; margin-bottom: 7px; color: #333; }
+    .shower { background: #f2f0eb; border-left: 4px solid #bbb; padding: 14px 18px; margin-top: 8px; border-radius: 0 4px 4px 0; font-style: italic; font-size: 0.97em; color: #333; }
+    .shower .attribution { font-style: normal; font-size: 0.8em; color: #999; margin-top: 6px; }
+    footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid #ddd; font-size: 0.78em; color: #aaa; font-family: -apple-system, sans-serif; }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Morning Digest</h1>
+  </div>
+  <p class="meta">Monday, April 6, 2026 &nbsp;&middot;&nbsp; 11 newsletters reviewed &nbsp;&middot;&nbsp; 4 overlapping stories identified</p>
+
+  <h2>Top Stories</h2>
+
+  <div class="story">
+    <h3>Anthropic Cuts Off Third-Party Agent Platforms from Claude Plans <span class="badge high">5 newsletters</span></h3>
+    <p>Anthropic announced that starting April 4, Claude subscriptions no longer cover third-party agentic tools like OpenClaw. Users of those platforms must now pay separately via usage add-ons or API keys. Anthropic's Boris Cherny framed it as managing "sustainable long-term growth," but the timing is rough: the company is already under fire for rate limit tightening, and OpenClaw's creator pushed back, saying Anthropic copied popular features into its own harness before locking out the open-source competition. To soften the blow, Anthropic is handing out credits worth one month's subscription and discounting add-ons up to 30%. The story ran prominently across The Rundown AI, TLDR, TLDR Dev, and TLDR Founders, with the Hacker News thread also getting flagged as notable.</p>
+  </div>
+
+  <div class="story">
+    <h3>Coding Agents Are the Story of the Day <span class="badge high">4 newsletters</span></h3>
+    <p>Four newsletters independently led with angles on the same underlying trend: coding agents are becoming serious production infrastructure, not just toys. TLDR Dev and TLDR DevOps both highlighted the same deep-dive piece on coding agent internals, explaining how the real capability gains come from the surrounding harness (repo context, memory, tool access) rather than the underlying model. TLDR Data picked up a research paper showing coding agents significantly outperform RAG on long-context tasks. TLDR Founders ran a SaaStr case study where a nine-person team replaced most of its work with 20 AI agents and made $1.5M in the first two months. The consensus framing: the agent layer is now a serious engineering discipline, not just prompting.</p>
+  </div>
+
+  <div class="story">
+    <h3>Netflix Releases Two AI Video Tools <span class="badge high">3 newsletters</span></h3>
+    <p>Netflix had a notably public AI week. The Rundown AI covered VOID, the company's first open-source release: a physics-aware framework that erases objects from video while reasoning about the downstream physical consequences (a balloon floats when a holder disappears, blocks don't fall when one in a chain is removed). Evaluators preferred VOID over six baseline models, including Runway, nearly two-thirds of the time. Separately, TLDR Data and TLDR DevOps both covered Netflix's internal multimodal video search system, which lets filmmakers search hundreds of hours of raw footage by character, scene, or dialogue using a three-stage architecture built on Cassandra, Kafka, and Elasticsearch. Both stories signal that Netflix Research is moving from private tooling to public influence.</p>
+  </div>
+
+  <div class="story">
+    <h3>OpenAI Leadership in Flux <span class="badge">2 newsletters</span></h3>
+    <p>TLDR and The Rundown AI both noted OpenAI is navigating a notable leadership shuffle simultaneously: COO Brad Lightcap has moved to "special projects" reporting directly to Sam Altman, CMO Kate Rouch stepped down for cancer recovery, and CEO Fidji Simo is on medical leave. The churn is happening at a moment when OpenAI is actively courting the same developer community Anthropic is angering with its agent access changes.</p>
+  </div>
+
+  <h2>Other Notable Stories</h2>
+
+  <ul class="notable">
+    <li><strong>OpenAI and Anthropic IPO finances leaked.</strong> TLDR published charts from confidential investor documents: OpenAI expects to burn $85B by 2028, Anthropic significantly less but both face mounting compute costs with no slowdown in model release cadence.</li>
+    <li><strong>Apple signs Nvidia eGPU drivers for Mac.</strong> Users can now pair external Nvidia GPUs with Macs for LLM processing without disabling System Integrity Protection. TLDR noted demand for high-memory Macs has pushed delivery times to six weeks, largely driven by agent use.</li>
+    <li><strong>Artemis II launches, first crewed lunar mission in 54 years.</strong> Superhuman led its Sunday edition with NASA's successful April 1 liftoff. The crew won't land but will swing within 8,000 km of the lunar surface to stress-test the Orion spacecraft. NASA issued each astronaut an iPhone 17 Pro Max, the first qualified for extended use beyond Earth orbit.</li>
+    <li><strong>Anthropic acquires Coefficient Bio for ~$400M.</strong> The biotech startup folds into Anthropic's healthcare and life sciences group focused on drug discovery, per The Rundown AI.</li>
+    <li><strong>Mercor data breach via LiteLLM vulnerability.</strong> Hackers claimed access to up to 4TB of data from the $10B AI training startup after an attack on open-source library LiteLLM. The Rundown AI flagged it.</li>
+    <li><strong>Claude Code found a 23-year-old Linux kernel vulnerability.</strong> Anthropic researcher Nicholas Carlini used Claude Code to uncover a heap buffer overflow in the NFS driver that had been hidden since 2003. TLDR Dev covered it as a landmark moment for AI-assisted security research.</li>
+    <li><strong>Gmail lets users change their email address for the first time.</strong> After 22 years, Google has enabled address changes without data loss. The Hustle noted the occasion with appropriate energy.</li>
+    <li><strong>Breakthrough gene therapy partially reverses deafness.</strong> In a small but landmark trial, ten patients received an injection delivering a working OTOF gene copy into the inner ear. Average sound detection improved from 106 to 52 decibels. Superhuman covered it as one of the most promising gene therapy results in years.</li>
+  </ul>
+
+  <h2>Quick Hits</h2>
+
+  <ul class="hits">
+    <li>GitHub is on pace for 14 billion commits this year if current growth holds, per a viral thread flagged by TLDR.</li>
+    <li>Google released Gemma 4, an open-weight model claiming state-of-the-art performance for its size class.</li>
+    <li>Cursor 3 launched with an agent-first interface supporting parallel coding agents across multiple tasks simultaneously.</li>
+    <li>The next MCP spec update, due in June, adds stateless servers so cloud providers can spin up on-demand instances, plus task support for long-running autonomous workflows. MCP SDKs already see 110 million downloads per month.</li>
+    <li>GitHub will now use Copilot interaction data to train AI models by default, including on private codebases using Copilot Free, Pro, or Pro+.</li>
+    <li>Elon Musk told banks working on the SpaceX IPO they must purchase Grok subscriptions and advertise on X as a condition of participation.</li>
+    <li>Pika Labs released PikaStream 1.0, letting AI agents join Google Meet calls as real-time video avatars with voice cloning.</li>
+    <li>A solar geoengineering startup raised $60M to spray aerosol particles into the atmosphere to dim the sun and curb warming. Many scientists remain deeply skeptical of the risks.</li>
+    <li>China's tech giants are recruiting high schoolers for research and product roles, citing a belief that younger candidates imagine things that do not yet exist.</li>
+  </ul>
+
+  <h2>Shower Thought</h2>
+
+  <div class="shower">
+    Our dogs probably think we are weakly barking when we cough.
+    <div class="attribution">via The Hustle (sourced from r/Showerthoughts)</div>
+  </div>
+
+  <footer>
+    Generated Monday, April 6, 2026. Sources: TLDR, TLDR Dev, TLDR DevOps, TLDR Data, TLDR Founders, The Rundown AI, The Hustle, Superhuman. Morning Brew (x2) rendered as plain text redirects and could not be parsed directly.
+  </footer>
+
+</body>
+</html>
