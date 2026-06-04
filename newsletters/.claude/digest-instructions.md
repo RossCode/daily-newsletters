@@ -72,7 +72,18 @@ You are producing a daily morning newsletter digest for Joel. Search his Gmail f
    ```
    Update the file on any successful run, including light days when zero or few newsletters were found, so the window always advances. Do NOT update it if the run failed before producing a digest, otherwise the next run would skip newsletters that were never summarized.
 
-7. **Report completion.** Output one line: the full path to the file that was written.
+7. **Commit the digest and state together.** Stage and commit the new digest file and the updated `last-run.json` in a single commit, so the run-window state always advances alongside the digest it corresponds to. Run git from the repository root `c:\code\rosscode\newsletters` (the folder containing the `.git` directory; the digest content lives one level down under `newsletters\`). Stage exactly these two paths and nothing else, so unrelated untracked files are never swept in:
+   - `newsletters/.claude/last-run.json`
+   - `newsletters/{YYYY}/{MonthName}/{YYYY-MM-DD}.md`
+
+   Example:
+   ```
+   git -C "c:\code\rosscode\newsletters" add -- "newsletters/.claude/last-run.json" "newsletters/2026/June/2026-06-04.md"
+   git -C "c:\code\rosscode\newsletters" commit -m "Add 2026-06-04 newsletter digest"
+   ```
+   Commit only; do not push unless Joel asks. Skip this step on a failed run.
+
+8. **Report completion.** Output one line: the full path to the file that was written.
 
 ## Constraints
 - The digest must be readable in under 5 minutes.
