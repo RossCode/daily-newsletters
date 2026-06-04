@@ -80,8 +80,9 @@ You are producing a daily morning newsletter digest for Joel. Search his Gmail f
    ```
    git -C "c:\code\rosscode\newsletters" add -- "newsletters/.claude/last-run.json" "newsletters/2026/June/2026-06-04.md"
    git -C "c:\code\rosscode\newsletters" commit -m "Add 2026-06-04 newsletter digest"
+   git -C "c:\code\rosscode\newsletters" push
    ```
-   Commit only; do not push unless Joel asks. Skip this step on a failed run.
+   After committing, push to `origin` so the digest and updated state reach the remote. Skip the whole step on a failed run.
 
 8. **Report completion.** Output one line: the full path to the file that was written.
 
