@@ -13,6 +13,21 @@ You are producing a daily morning newsletter digest for Joel. Search his Gmail f
 
 2. **Read each newsletter.** For each matching message, fetch and read the full content. Focus on headlines, story summaries, and key topics. Skip promotional and ad copy. As you read, capture the best source URL for each story, preferring the original article link over newsletter tracking links. Strip UTM parameters and tracking tokens from every URL before using it (use `https://techcrunch.com/2026/04/20/some-story/`, not the version with `?utm_source=...`).
 
+   **Reliable fetch method (do this from the start, do not fight the token limit).** `get_thread` with full content nearly always exceeds the tool's max token cap, because each newsletter carries a large `htmlBody`. There is no plaintext-only message format, so this is structural, not occasional. When the result overflows, the tool writes the full JSON to a file under the session's `tool-results` directory and returns that path in the error. The body you actually want is the `plaintextBody` field. The robust workflow:
+   - Call `get_thread` (full content) for every matching thread. Expect most to overflow and save to a file. A few small ones may return inline; that is fine.
+   - Then run **one PowerShell pass** that parses every saved `get_thread` JSON file and writes its `plaintextBody` to a clean per-newsletter `.txt` in the scratchpad directory, then read those clean files. PowerShell `ConvertFrom-Json` handles these large files quickly. Example (adjust the two directory paths to the current session's paths, shown in your environment context and in the overflow error):
+     ```powershell
+     $dir = "<session tool-results dir>"      # from the get_thread overflow error path
+     $out = "<session scratchpad dir>"
+     Get-ChildItem $dir -Filter "*get_thread*.txt" | ForEach-Object {
+       $j = Get-Content $_.FullName -Raw | ConvertFrom-Json
+       $m = $j.messages[0]
+       $safe = ($m.subject -replace '[^\w]+','_').Substring(0,[Math]::Min(40,$m.subject.Length))
+       $m.plaintextBody | Set-Content (Join-Path $out "clean_$safe.txt") -Encoding UTF8
+     }
+     ```
+   - **Use PowerShell, not the Bash tool, for this and any local scripting in this repo.** The Bash tool has been observed to hang on this Windows machine (even `sleep` and `jq` time out). PowerShell is the reliable shell here.
+
 3. **Identify overlapping stories.** Note which stories, topics, or people appear across multiple newsletters. A story covered by 2 or more newsletters is significant. Flag it clearly and track the coverage count.
 
 4. **Build the digest content** with this structure:
